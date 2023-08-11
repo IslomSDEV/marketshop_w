@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import circle from "../../assets/cricle.png";
+import ArrowIcon from "../../assets/img/arrowIcon.svg";
 import headerLike from "../../assets/img/heart.svg";
 import heart from "../../assets/heart.svg";
 import "./Card.css";
@@ -15,6 +16,13 @@ const Card = ({ data, key, like }) => {
     likeProductPost(productId)
   );
 
+  const [hoverEffect, setHoverEffect] = useState(false);
+  const handleHover = (id) => {
+    if (id == data.id) {
+      setHoverEffect(true);
+    }
+  };
+
   const handleLike = () => {
     mutate(data.id);
   };
@@ -25,7 +33,8 @@ const Card = ({ data, key, like }) => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        height={"80vh"}>
+        height={"80vh"}
+      >
         <CircularProgress
           color="success"
           style={{ width: "100px", height: "100px" }}
@@ -35,7 +44,12 @@ const Card = ({ data, key, like }) => {
   }
   return (
     <>
-      <div key={key} className="card">
+      <div
+        key={key}
+        className="card"
+        onMouseEnter={() => handleHover(data.id)}
+        onMouseLeave={() => setHoverEffect(false)}
+      >
         {data.photos ? (
           <LazyLoadImage
             src={data.photos[0].filePath}
@@ -78,7 +92,13 @@ const Card = ({ data, key, like }) => {
         ) : (
           ""
         )}
-        <img src={circle} alt="cricle" className="card__cricle" />
+        <Link to={"/product-nfo"}>
+          <img
+            src={ArrowIcon}
+            alt="cricle"
+            className={`${hoverEffect ? "showArrowIcon" : null} card__cricle`}
+          />
+        </Link>
       </div>
     </>
   );
