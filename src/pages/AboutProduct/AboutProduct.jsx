@@ -21,6 +21,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import CallModal from "./components/Modal/Modal";
+import { t } from "i18next";
 
 function AboutProduct() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -92,6 +93,26 @@ function AboutProduct() {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <Swiper
+            onSwiper={setThumbsSwiper}
+            loop={true}
+            spaceBetween={50}
+            slidesPerView={4}
+            freeMode={true}
+            watchSlidesProgress={true}
+            style={{paddingLeft: "10px", paddingRight: "0"}}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className="mySwiper">
+            {data?.photos?.map((evt, index) => (
+                <SwiperSlide key={index}>
+                <img
+                  className="aboutproduct-imgs"
+                  alt={evt?.name}
+                  src={evt?.filePath}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>  
           </div>
           <div className="blok__right">
             <h1 className="blok__right_title">{data.name}</h1>
@@ -99,7 +120,7 @@ function AboutProduct() {
 
             <div className="blok__right_icons">
               {data?.quality === "NEW" ? (
-                <span className="icons__link card__new">Yangi</span>
+                <span className="icons__link card__new">{t("hello110")}</span>
               ) : data?.quality === "TOP" ? (
                 <span className="icons__link card__medium">O'rtacha</span>
               ) : data?.quality === "AVERAGE" ? (
@@ -151,27 +172,8 @@ function AboutProduct() {
             </p>
           </div>
         </div>
-        <div className="slider aboutproduct-slider">
-          <Swiper
-            onSwiper={setThumbsSwiper}
-            loop={true}
-            spaceBetween={10}
-            slidesPerView={4}
-            freeMode={true}
-            watchSlidesProgress={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper">
-            {data?.photos?.map((evt, index) => (
-              <SwiperSlide key={index}>
-                <img
-                  className="aboutproduct-imgs"
-                  alt={evt?.name}
-                  src={evt?.filePath}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        {/* <div className="slider aboutproduct-slider">
+        </div> */}
       </div>
       <div className="about">
         <div className="container">

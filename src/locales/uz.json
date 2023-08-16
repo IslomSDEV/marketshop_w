@@ -13,5 +13,15 @@
   "security": "Maxfiylik siyosati",
   "xavfsiz": "Xavfsizlik qoidalari",
   "website": "Sayt xaritasi",
-  "useful": "Foydalanish shartlari"
+  "useful": "Foydalanish shartlari",
+  "hello101": "Qo'ng'iroq qilish",
+  "hello102": "Kunlik limit tugadi",
+  "hello103": "Sizning kunlik limitingiz tugagan!",
+  "hello104": "Yopish",
+  "hello105": "Sizda kunlik 3 ta qo'ng'iroqdan 1 ta qoldi",
+  "hello106": "Qo‘ng‘iroq qilish",
+  "hello107": "Ro‘yhatdan o‘tilmagan",
+  "hello108": "Iltimos raqamni ko’rish va qo’ng’iroq qilish uchun saytdan ro’yhatdan o’tishingizni so’raymiz.",
+  "hello109": "Ro‘yhatdan o‘tish",
+  "hello110": "Yangi"
 }

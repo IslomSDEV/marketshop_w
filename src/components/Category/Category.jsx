@@ -10,23 +10,26 @@ import transport from "../../assets/category-icons/transport.svg";
 import cat from "../../assets/category-icons/cat.svg";
 import baby from "../../assets/category-icons/baby.svg";
 
-export default function Category({ setisCategory }) {
+export default function Category({ setisCategory, isCategory }) {
   const [activeCategory, setactiveCategory] = useState(1);
   const { data } = useQuery("get category", getCategory);
-  // console.log(activeCategory);
   const icons = [clothes, electronic, transport, cat, baby];
+  // onMouseEnter={() => setShowCat(true)} onMouseLeave={() => setShowCat(false)}
+  // const [showCat, setShowCat] = useState(false);
+  // console.log(activeCategory);
 
 
   return (
-    <div className="category">
+    <div className={`${isCategory ? "viewCat" : null} category`} onMouseEnter={() => setisCategory(true)} onMouseLeave={() => setisCategory(false)}>
       <ul className="category-section-main">
         {data?.objectKoinot?.length
           ? data.objectKoinot.map((el, index) => (
               <li
                 key={el.id}
-                onClick={() => setactiveCategory(el.id)}
+                // onClick={() => setactiveCategory(el.id)}
+                onMouseEnter={() => setactiveCategory(el.id)}
                 className={
-                  activeCategory === el.id
+                  activeCategory == el.id
                     ? "category-section-main-item category-section-main-item-active"
                     : "category-section-main-item"
                 }>

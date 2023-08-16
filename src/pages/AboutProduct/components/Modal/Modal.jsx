@@ -7,6 +7,7 @@ import {
   DeveloperIcon,
 } from "../../../../assets/icon";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 
 const style = {
   position: "absolute",
@@ -33,7 +34,7 @@ function CallModal({ number }) {
   return (
     <div className="delete">
       <button onClick={handleOpen} className="call__link">
-        Qo’ng’iroq qilish
+        {t("hello101")}
       </button>
       <Modal
         className="delete-modal-product"
@@ -46,12 +47,12 @@ function CallModal({ number }) {
             <Box sx={style}>
               <div className="delete-list">
                 <img src={CloseButton} alt="" />
-                <h3 className="delete-name">Kunlik limit tugadi</h3>
+                <h3 className="delete-name">{t("hello102")}</h3>
                 <p className="delete-text">
-                  Sizning kunlik limitingiz tugagan!
+                {t("hello103")}
                 </p>
                 <button onClick={handleClose} className="call__link">
-                  Yopish
+                  {t("hello104")}
                 </button>
               </div>
             </Box>
@@ -61,10 +62,10 @@ function CallModal({ number }) {
                 <img src={CallButton} alt="" />
                 <h3 className="delete-name">{number}</h3>
                 <p className="delete-text">
-                  Sizda kunlik 3 ta qo’ng’iroqdan {count} ta qoldi
+                  {t("hello105")}
                 </p>
                 <a href={`tel:+${number}`} className="call__link">
-                  Qo‘ng‘iroq qilish
+                  {t("hello106")}
                 </a>
               </div>
             </Box>
@@ -73,13 +74,12 @@ function CallModal({ number }) {
           <Box sx={style}>
             <div className="delete-list">
               <img src={DeveloperIcon} alt="" />
-              <h3 className="delete-name">Ro‘yhatdan o‘tilmagan</h3>
+              <h3 className="delete-name">{t("hello107")}</h3>
               <p className="delete-text">
-                Iltimos raqamni ko’rish va qo’ng’iroq qilish uchun saytdan
-                ro’yhatdan o’tishingizni so’raymiz.
+                {t("hello108")}
               </p>
               <Link to="/" className="call__link">
-                Ro‘yhatdan o‘tish
+                {t("hello109")}
               </Link>
             </div>
           </Box>

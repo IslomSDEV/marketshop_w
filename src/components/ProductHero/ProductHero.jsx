@@ -13,6 +13,7 @@ import { LuSettings2 } from "react-icons/lu";
 import { useQuery } from "react-query";
 import { fetchRegionData, getCategory, getFilterProductData } from "../../api";
 import Card from "../Card/Card";
+import NotfindInfo from "../NotfindInfo/NotfindInfo";
 
 export default function ProductHero() {
   const [category, setCategory] = useState(1);
@@ -211,7 +212,8 @@ export default function ProductHero() {
             <Card data={evt} key={index} />
           ))
         ) : (
-          <div>Filter bo‘yicha hech qanday ma’lumot topilmadi!</div>
+          // <div>Filter bo‘yicha hech qanday ma’lumot topilmadi!</div>
+          <NotfindInfo />
         )}
       </div>
     </>

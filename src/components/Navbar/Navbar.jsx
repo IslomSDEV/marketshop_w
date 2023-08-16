@@ -54,7 +54,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-      {isCategory ? <Category setisCategory={setisCategory} /> : null}
+      {isCategory ? <Category setisCategory={setisCategory} isCategory={isCategory} /> : null}
       <div className="container">
         <div className="navbar-left">
           <Link to="/">
@@ -62,7 +62,10 @@ function Navbar() {
           </Link>
           <button
             className="navbar-category"
-            onClick={() => setisCategory((state) => !state)}>
+            // onClick={() => setisCategory((state) => !state)}
+            onMouseEnter={() => setisCategory(true)}
+            onMouseLeave={()=> setisCategory(false)}
+            >
             <img src={CategoryIcon} alt="" className="navbar-icons" />
             {t("barcha")}
           </button>
